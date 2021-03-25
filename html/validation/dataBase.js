@@ -1,4 +1,5 @@
 function saveToDB(){
+    console.log('Database Loaded')
 const code = Math.floor(Math.random() * 999999) + 111111;
 var code_element = document.getElementById("code-value").innerHTML = code;
 
