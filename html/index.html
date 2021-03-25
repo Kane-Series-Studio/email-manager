@@ -1,22 +1,16 @@
-<head onload="generateCode()">
-    <div id="head-container">
-        <h1 id="titler">Kane Series Studio</h1>
-    </div>
-    <div id="content-container">
-        <div id="code-container">
-            <h1 id="code-value">code</h1>
+<body>
+    <head>
+        <div id="head-container">
+            <h1 id="titler">Kane Series Studio</h1>
         </div>
-    </div>
-
-    <script>
-
-        const code = Math.floor(Math.random() * 999999) + 111111;
-        var code_element = document.getElementById("code-value").innerHTML = code;
-
-        
-    </script>
-</head>
-
+        <div id="content-container">
+            <div id="code-container">
+                <h1 id="code-value">code</h1>
+            </div>
+        </div>
+        <script src="./validation/dataBase.js"></script>
+    </head>
+</body>
 <style>
     #head-container {
         z-index: 2;
