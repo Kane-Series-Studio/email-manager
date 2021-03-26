@@ -5,6 +5,10 @@ const emailSchema = require('./database_logger');
 const dbConnect = require('./db_connection')
 var Imap = require('imap');
 
+function openInbox(cb){
+    imap.openBox('INBOX', true, cb)
+}
+
 var imap = new Imap({
     user: `${config.email}`,
     password: `${config.password}`,
