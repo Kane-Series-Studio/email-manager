@@ -1,6 +1,7 @@
 const nodemailer = require('nodemailer');
 const config = require('./config/email.json');
-const email_config = require('./config/email-content.json')
+const email_config = require('./config/email-content.json');
+const emailSchema = require('./database_logger');
 var transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
@@ -14,5 +15,6 @@ transporter.sendMail({
 from: `${config.email}`,
   to: 'rsrudd@gmail.com',
   subject:  `${email_config['confirmation-sent'].topic}`,
-  text: `${email_config['confirmation-sent'].content}`
+  text: `${email_config['confirmation-sent'].content}`,
+  messageId: true
 });
