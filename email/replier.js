@@ -1,25 +1,18 @@
 const nodemailer = require('nodemailer');
 const config = require('./config/email.json');
-
+const email_config = require('./config/email-content.json')
 var transporter = nodemailer.createTransport({
-    service: 'gmail',
+    service: 'Gmail',
     auth: {
-      user: `${config.email}`,
-      pass: `${config.password}`
+        user: `${config.email}`,
+        pass: `${config.password}`
     }
-  });
-  
-  var mailOptions = {
-    from: `${config.email}`,
-    to: 'rsrudd@gmail.com',
-    subject: 'Sending Email using Node.js',
-    text: 'That was easy!'
-  };
-  
-  transporter.sendMail(mailOptions, function(error, info){
-    if (error) {
-      console.log(error);
-    } else {
-      console.log('Email sent: ' + info.response);
-    }
-  });
+});
+
+console.log('Recieved email');
+transporter.sendMail({
+from: `${config.email}`,
+  to: 'rsrudd@gmail.com',
+  subject:  `${email_config['confirmation-sent'].topic}`,
+  text: `${email_config['confirmation-sent'].content}`
+});
