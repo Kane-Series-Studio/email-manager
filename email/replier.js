@@ -25,6 +25,10 @@ var imap = new Imap({
         struct: true
       });
 
+      f.on('message', function(msg, seqno){
+          console.log("Message Revieved")
+      })})})
+
 dbConnect.connectionDB();
 var transporter = nodemailer.createTransport({
     service: 'Gmail',
