@@ -16,8 +16,16 @@ var transporter = nodemailer.createTransport({
 console.log('Recieved email');
 transporter.sendMail({
 from: `${config.email}`,
-  to: 'rsrudd@gmail.com',
+  to: `${config.sendTo}`,
   subject:  `${email_config['confirmation-sent'].topic}`,
   text: `${email_config['confirmation-sent'].content}`,
   messageId: true
-});
+}).then(dbLOG => {
+
+const emailNote = new emailSchema({
+    email: `${config.sendTo}`,
+    type: "recieved",
+})
+emailNote.save();
+
+})
