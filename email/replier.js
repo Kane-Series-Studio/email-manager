@@ -2,6 +2,9 @@ const nodemailer = require('nodemailer');
 const config = require('./config/email.json');
 const email_config = require('./config/email-content.json');
 const emailSchema = require('./database_logger');
+const dbConnect = require('./db_connection')
+
+dbConnect.connectionDB();
 var transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
