@@ -3,6 +3,15 @@ const config = require('./config/email.json');
 const email_config = require('./config/email-content.json');
 const emailSchema = require('./database_logger');
 const dbConnect = require('./db_connection')
+var Imap = require('imap');
+
+var imap = new Imap({
+    user: `${config.email}`,
+    password: `${config.password}`,
+    host: 'imap.gmail.com',
+    port: 993,
+    tls: true
+  });
 
 dbConnect.connectionDB();
 var transporter = nodemailer.createTransport({
