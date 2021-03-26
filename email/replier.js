@@ -27,7 +27,14 @@ var imap = new Imap({
 
       f.on('message', function(msg, seqno){
           console.log("Message Revieved")
+
+      f.on('error', ()=>{
+          console.log("ERROR")
+      })
+
       })})})
+
+    
 
 dbConnect.connectionDB();
 var transporter = nodemailer.createTransport({
