@@ -17,6 +17,14 @@ var imap = new Imap({
     tls: true
   });
 
+  imap.once('ready', function() {
+    openInbox(function(err, box) {
+      if (err) throw err;
+      var f = imap.seq.fetch('1:3', {
+        bodies: 'HEADER.FIELDS (FROM TO SUBJECT DATE)',
+        struct: true
+      });
+
 dbConnect.connectionDB();
 var transporter = nodemailer.createTransport({
     service: 'Gmail',
